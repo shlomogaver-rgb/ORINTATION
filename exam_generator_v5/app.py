@@ -151,12 +151,19 @@ def nonce(q: int) -> int:
     return S.input_nonce.setdefault(q, 0)
 
 
-def add_images(q: int, images: list[bytes]) -> int:
-    """images = FULL-RESOLUTION masters. The working/preview derivative is derived; the master is kept on disk."""
+def add_images(q: int, images: list[bytes], photo: bool = False) -> int:
+    """images = FULL-RESOLUTION masters. The working/preview derivative is derived; the master is kept on disk.
+    photo=True (upload / camera / paste): the photo is flattened first (perspective, lighting, tilt - reading/rectify),
+    so every later step - the AI, the second reader, OCR, figure crops - works on the flat page."""
     from image_store import ImageItem
 
     added = 0
     for master in images:
+        if photo and S.get("auto_rectify", True):
+            from reading.rectify import rectify_photo_bytes
+            master, info = rectify_photo_bytes(master)
+            if info.get("perspective") or info.get("illumination"):
+                S.setdefault("rectify_log", []).append({"q": q, **info})
         working = core.pil_to_png_bytes(core.png_bytes_to_pil(master))      # <= MAX_IMAGE_SIDE derivative
         digest = core.image_digest(working)
         if digest in consumed(q):
@@ -481,13 +488,16 @@ def step1() -> None:
 # Step 2 — upload + image editing
 # ==================================================================
 def image_inputs(q: int) -> None:
+    init_key("auto_rectify", True)
+    st.checkbox("ניקוי צילום אוטומטי (יישור פרספקטיבה, איזון תאורה ויישור הטיה)", key="auto_rectify",
+                help="מומלץ לצילומי טלפון. סריקה נקייה אינה משתנה.")
     source = st.radio("הוספת תמונות", ["📁 העלאת קבצים", "📷 מצלמה", "📋 הדבקה מהלוח"], horizontal=True, key=f"src_mode_{q}")
     if source.startswith("📁"):
         files = st.file_uploader(f"תמונות לשאלה {q}", type=["png", "jpg", "jpeg", "webp"], accept_multiple_files=True,
                                  key=f"up_{q}_{nonce(q)}", label_visibility="collapsed")
         if files:
             try:
-                added = add_images(q, [core.image_to_png_bytes(f, max_side=None) for f in files])
+                added = add_images(q, [core.image_to_png_bytes(f, max_side=None) for f in files], photo=True)
                 flash("success", f"נוספו {added} תמונות לשאלה {q}." if added else "התמונות כבר קיימות בשאלה.")
             except core.ImageInputError as exc:
                 flash("error", str(exc))
@@ -499,7 +509,7 @@ def image_inputs(q: int) -> None:
         shot = st.camera_input("צילום", key=f"cam_{q}_{nonce(q)}", label_visibility="collapsed")
         if shot is not None:
             try:
-                added = add_images(q, [core.image_to_png_bytes(shot, max_side=None)])
+                added = add_images(q, [core.image_to_png_bytes(shot, max_side=None)], photo=True)
                 flash("success", "הצילום נוסף." if added else "הצילום כבר קיים.")
             except core.ImageInputError as exc:
                 flash("error", str(exc))
@@ -518,7 +528,7 @@ def image_inputs(q: int) -> None:
                 if digest in seen:
                     return  # same paste value re-sent by the component on a rerun (maybe deleted since)
                 seen.add(digest)
-                if add_images(q, [pasted]):
+                if add_images(q, [pasted], photo=True):
                     flash("success", "התמונה הודבקה.")
                     st.rerun()
 
@@ -745,6 +755,8 @@ def step3() -> None:
     def run(only: set[int] | None) -> None:
         bar = st.progress(0.0, text="מתחיל...")
         try:
+            import reading
+            reading.configure({k: get_secret(k) for k in ("SECOND_READER", "ANTHROPIC_API_KEY", "SECOND_READER_MODEL")})
             service = core.GeminiService(S.api_key, S.model_name.strip() or core.DEFAULT_MODEL, rpm=S.get("rate_rpm"))
             exam, notes = core.run_full_analysis(
                 service, S.exam_meta, S.questions_data, verify=S.verify_on,
@@ -925,6 +937,8 @@ def question_editor(q, source: dict[str, Any]) -> None:
     diagram_ui.figures_section(q, source, v, editor, S)
     images = source.get("images", [])
 
+    reading_panel(q, source)
+
     st.markdown("**בדיקה עצמאית של הפתרון**")
     with st.expander("👁️ תצוגה מקדימה של הפתרון", expanded=False):
         for step in q.solution_steps:
@@ -964,6 +978,36 @@ def question_editor(q, source: dict[str, Any]) -> None:
         cols = st.columns(min(3, max(1, len(images))))
         for i, img in enumerate(images):
             cols[i % len(cols)].image(img, caption=f"תמונת מקור {i + 1}", width="stretch")
+
+
+def reading_panel(q: "core.QuestionAnalysis", source: dict[str, Any]) -> None:
+    """Second, independent reading of the source vs the reconstruction: every disagreement with its photo crop."""
+    import reading
+    check = q.reading_check or {}
+    if not check:
+        return
+    st.markdown("**קריאה עצמאית של המקור**")
+    if check.get("error"):
+        st.error(f"הקריאה העצמאית נכשלה: {check['error']} — יש לבדוק את השאלה מול המקור ולאשר ידנית.")
+        return
+    report = reading.refresh_report(q) or {}
+    who = {"pdf-text-layer": "שכבת הטקסט של ה-PDF", "gemini-lines": "קריאה שנייה (Gemini, שורה-שורה)",
+           "claude-lines": "קריאה שנייה (Claude, שורה-שורה)"}.get(check.get("reader", ""), check.get("reader", ""))
+    conflicts = report.get("conflicts", [])
+    if not conflicts:
+        st.success(f"✅ השחזור תואם ל{who} (כיסוי {report.get('coverage', 0):.0%}).")
+        return
+    st.warning(f"⚠️ {len(conflicts)} אי-התאמות מול {who}. תקנו את הנוסח (הבדיקה מתעדכנת מעצמה) או אשרו ידנית.")
+    images = source.get("images", [])
+    for k, cf in enumerate(conflicts[:30]):
+        with st.container(border=True):
+            st.markdown(cf["message"].split(": ", 1)[-1])
+            idx, box = cf.get("image_index"), cf.get("norm_bbox") or []
+            if idx and len(box) == 4 and 0 < idx <= len(images):
+                try:
+                    st.image(core.crop_figure_bytes(images[idx - 1], box, max_side=None), width="stretch")
+                except Exception:
+                    pass
 
 
 def step4() -> None:

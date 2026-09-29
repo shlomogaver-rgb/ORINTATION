@@ -447,7 +447,10 @@ def test_quota_error_parsing_matches_real_google_error():
 def test_free_tier_all_questions_succeed(monkeypatch, n):
     exam, notes, svc, client, clock = _quota_run(monkeypatch, n)
     assert not [q for q in exam.questions if q.analysis_error or q.verification_error]
-    assert client.accepted == 3 * n and client.rejected <= 1     # analysis + verification + PASS-2 diagram call
+    # analysis + verification + PASS-2 diagram call, + the independent second reading (line batches + figure labels)
+    reading_calls = sum(1 for _, schema in client.calls if schema in ("LineReadingsAI", "FigureLabelsAI"))
+    assert reading_calls >= 2 * n
+    assert client.accepted - reading_calls == 3 * n and client.rejected <= 1
     if 2 * n > 5:
         assert svc.rpm == 5 and notes  # learned the limit and told the teacher
 

@@ -41,6 +41,7 @@ import latex2mathml.converter
 import mathml2omml
 
 import scoring
+import reading
 import text_structure
 
 import matplotlib
@@ -71,7 +72,7 @@ except Exception:  # pragma: no cover
 # Configuration
 # ============================================================
 APP_TITLE = "מחולל מבחנים במתמטיקה"
-APP_VERSION = "5.7.9"
+APP_VERSION = "5.8.0"
 DEFAULT_MODEL = "gemini-3.8-flash"
 FALLBACK_MODELS = ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash"]
 TARGET_SCORE = Decimal("100")
@@ -327,6 +328,8 @@ class QuestionAnalysis(QuestionAI):
     teacher_verified_fp: str = ""                                  # the math content the teacher confirmed
     formula_uncertain: list[str] = Field(default_factory=list)     # independent-evidence disagreements (teacher must confirm)
     diagram_pass: dict[str, dict] = Field(default_factory=dict)
+    # independent second reading of the source (photo lines / PDF text layer) + its comparison report (reading/)
+    reading_check: dict = Field(default_factory=dict)
 
 
 class ExamAnalysis(BaseModel):
@@ -723,11 +726,22 @@ def analyze_question(service: GeminiService, meta: dict[str, Any], question: dic
     check_text_structure(q, question)
     apply_source_line_breaks(q)
     extract_diagrams_pass2(service, q, question)
+    run_second_reading(service, q, question)
     q.model_evidence = [{**e, "source_hashes": q.analysis_input_hashes}
                         for e in getattr(service, "raw_log", [])[question.get("_raw_log_start", 0):]]
     attach_diagrams(q, question.get("images", []), ai_model=service.model, masters=question.get("masters"),
                     provenance=question.get("provenance"))
     return q
+
+
+def run_second_reading(service: GeminiService, q: QuestionAnalysis, question: dict[str, Any]) -> None:
+    """Reader B (reading/): photo -> each printed line read alone + figure labels read again; PDF -> text layer.
+    A failure is recorded and blocks export until the teacher confirms (fail closed), it never aborts the analysis."""
+    try:
+        reading.run_reading_check(service, q, question)
+    except Exception as exc:
+        q.reading_check = {"version": reading.READING_VERSION, "mode": reading.source_kind(question),
+                           "error": friendly_error(exc)}
 
 
 def analyze_header(service: GeminiService, meta: dict[str, Any]) -> ExamHeaderAI:
@@ -889,7 +903,8 @@ def run_full_analysis(
 
 
 def estimate_calls(n_questions: int, verify: bool, language: str) -> int:
-    return n_questions * (2 if verify else 1) + (0 if language == "עברית" else 1)
+    # analysis + independent second reading (+ verification) per question, + header translation
+    return n_questions * (3 if verify else 2) + (0 if language == "עברית" else 1)
 
 
 def postprocess_question(ai: QuestionAI, number: int, points: float, image_count: int) -> QuestionAnalysis:
@@ -1140,6 +1155,8 @@ def validate_exam(exam: ExamAnalysis, meta: dict[str, Any], questions_data: list
             errors.append(f"שאלה {num}: FORMULA_REVALIDATION_REQUIRED — המתמטיקה או מבנה הסעיפים שונו אחרי אישור המורה; יש לאשר מחדש.")
         if q.formula_uncertain and not verified_now:
             errors += [f"שאלה {num}: {m}" for m in q.formula_uncertain[:3]]
+        if not verified_now:
+            errors += [f"שאלה {num}: {m}" for m in reading.gate_messages(q)]
         unparsed = [f["latex"] for f in q.formula_checks if f.get("status") != "OK"]
         if unparsed:
             warnings.append(f"שאלה {num}: {len(unparsed)} נוסחאות לא נותחו סמלית (יוצגו כפי שהן) — מומלץ לבדוק: {unparsed[0][:40]}")

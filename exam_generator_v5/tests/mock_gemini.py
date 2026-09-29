@@ -6,7 +6,10 @@ prompt-building, parsing, validation and document code paths are exercised witho
 from __future__ import annotations
 
 import json
+import threading
 from types import SimpleNamespace
+
+_LAST = threading.local()      # the QuestionAI payload this worker thread returned last (reader B echoes that question)
 
 Q1 = {
     "topic": "פונקציה ריבועית",
@@ -135,6 +138,7 @@ class _Models:
         text = " ".join(getattr(p, "text", "") or "" for p in contents[0].parts)
         if schema == "QuestionAI":
             payload = Q1 if "Question number: 1" in text else Q2
+            _LAST.q = payload
         elif schema == "VerificationAI":
             section_ids = ["א", "ב", "ג"] if "x^{2}-4" in text else ["א", "ב"]
             payload = {"items": [{"section_id": sid, "independent_final_answer": "ok", "proposed_final_answer": "ok",
@@ -151,6 +155,23 @@ class _Models:
             from diagram_engine.pipeline import parse_raw
             src = Q1 if "x^{2}-4" in text else Q2
             payload = to_ai_dict(parse_raw(src["figures"][0]["spec_json"]))
+        elif schema == "LineReadingsAI":          # reader B: one literal reading per line crop
+            n = sum(1 for p in contents[0].parts if getattr(p, "inline_data", None) is not None)
+            start = next((int(t.split()[-1].rstrip(":")) for t in
+                          (getattr(p, "text", "") or "" for p in contents[0].parts) if t.startswith("Image index")), 0)
+            src = getattr(_LAST, "q", Q1)
+            lines = [l for t in [src["text"]] + [s_["text"] for s_ in src["sections"]] for l in t.split("\n") if l.strip()]
+            if self.owner.misread:
+                lines = [l.replace("x^{2}-4", "x^{2}-9") for l in lines]
+            if n and len(lines) > n:
+                lines = lines[:n - 1] + [" ".join(lines[n - 1:])]
+            lines += [""] * (n - len(lines))
+            payload = {"lines": [{"index": start + k, "text": lines[k] if start == 0 else "", "unreadable": False}
+                                 for k in range(n)]}
+        elif schema == "FigureLabelsAI":
+            src = getattr(_LAST, "q", Q1)
+            spec = json.loads(src["figures"][0]["spec_json"]) if src.get("figures") else {}
+            payload = {"labels": [l["text"] for l in spec.get("labels", [])]}
         else:
             raise ValueError(schema)
         return SimpleNamespace(
@@ -160,13 +181,14 @@ class _Models:
 
 
 class FakeClient:
-    def __init__(self, api_key: str = "", disagree: bool = False):
+    def __init__(self, api_key: str = "", disagree: bool = False, misread: bool = False):
         self.calls: list = []
         self.disagree = disagree
+        self.misread = misread          # reader B sees a different number than PASS 1 (a misread in one of the readings)
         self.models = _Models(self)
 
 
-def install(disagree: bool = False) -> None:
+def install(disagree: bool = False, misread: bool = False) -> None:
     import exam_core
 
-    exam_core.make_client = lambda api_key: FakeClient(api_key, disagree=disagree)
+    exam_core.make_client = lambda api_key: FakeClient(api_key, disagree=disagree, misread=misread)
