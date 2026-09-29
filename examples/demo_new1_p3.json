@@ -1,0 +1,660 @@
+{
+ "pages": [
+  3
+ ],
+ "page_json": [
+  {
+   "page_type": "questions",
+   "figures": [
+    {
+     "id": "f1",
+     "bbox": [
+      60,
+      95,
+      370,
+      250
+     ],
+     "description": "גרף פרבולה f(x) החותכת את ציר x ב־(-5,0) ו־(5,0) ומינימום ב־(0,-3)"
+    },
+    {
+     "id": "f2",
+     "bbox": [
+      80,
+      480,
+      345,
+      695
+     ],
+     "description": "מרובע ABCD, הנקודה F על המשך CB"
+    }
+   ],
+   "blocks": [
+    {
+     "kind": "figure_row",
+     "label": "",
+     "level": 0,
+     "align": "start",
+     "space_before": false,
+     "lines": [],
+     "figure_id": "f1",
+     "figure_side": "left",
+     "paragraphs": [
+      {
+       "label": "ג.",
+       "level": 1,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "בסרטוט שלפניכם מתואר גרף הפונקציה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "f(x)",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " , ועליו כתובים",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "כל שיעורי נקודות החיתוך של גרף הפונקציה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "f(x)",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " עם ציר ה־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "x",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "ושיעורי נקודת המינימום שלה.",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "הפונקציה  מוגדרת לכל ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "x",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "נתונות הפונקציות: ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "g(x)=\\left|f(x)+m\\right|",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " , ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "h(x)=\\left|f(x)\\right|+m",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "math",
+          "value": "m",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " הוא פרמטר, ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "0<m<2",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      },
+      {
+       "label": "(1)",
+       "level": 2,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "הביעו באמצעות ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "m",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " , אם יש צורך,",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "את שיעורי נקודת המקסימום של הפונקציה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "g(x)",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      }
+     ],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "(2)",
+     "level": 2,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "הביעו באמצעות ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "m",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " , אם יש צורך, את שיעורי נקודות הקיצון של הפונקציה ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "h(x)",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " , וקבעו את סוגן.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "(3)",
+     "level": 2,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "לפניכם שתי טענות, ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "\\mathrm{I}-\\mathrm{II}",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " . קבעו בעבור כל טענה אם היא נכונה או אינה נכונה. נמקו את קביעותיכם.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "I.",
+     "level": 3,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "הפונקציות ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "g(x)",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " ו־",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "h(x)",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " חיוביות לכל ערך של ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "x",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " .",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "II.",
+     "level": 3,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "לכל ערך של ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "m",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " בתחום ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "0<m<2",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " מתקיים שהישר ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "y=m+\\frac{1}{2}",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " חותך כל אחת מן",
+        "bold": false,
+        "underline": false
+       }
+      ],
+      [
+       {
+        "type": "text",
+        "value": "הפונקציות ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "g(x)",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " ו־",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "h(x)",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " בשלוש נקודות.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "figure_row",
+     "label": "",
+     "level": 0,
+     "align": "start",
+     "space_before": false,
+     "lines": [],
+     "figure_id": "f2",
+     "figure_side": "left",
+     "paragraphs": [
+      {
+       "label": "ד.",
+       "level": 1,
+       "align": "start",
+       "space_before": true,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "המרובע ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "ABCD",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " הוא בר חסימה במעגל, כך ש־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "AD",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " הוא קוטר במעגל.",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "הנקודה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "F",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " נמצאת על המשך הצלע ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "CB",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " , כך ש־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "FB\\perp FA",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " ,",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "כמתואר בסרטוט שלפניכם.",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      },
+      {
+       "label": "(1)",
+       "level": 2,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "הוכיחו: ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "\\triangle ACD\\sim\\triangle AFB",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      },
+      {
+       "label": "",
+       "level": 1,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "נתון: ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "\\sphericalangle BDA=24^{\\circ}",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      },
+      {
+       "label": "(2)",
+       "level": 2,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "מצאו את היחס בין שטח המשולש ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "ACD",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " ובין שטח המשולש ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "AFB",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      }
+     ],
+     "rows": []
+    }
+   ]
+  }
+ ]
+}

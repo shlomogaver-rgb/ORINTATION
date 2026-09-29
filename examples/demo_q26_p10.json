@@ -1,0 +1,455 @@
+{
+ "pages": [
+  10
+ ],
+ "page_json": [
+  {
+   "page_type": "questions",
+   "figures": [
+    {
+     "id": "f1",
+     "bbox": [
+      128,
+      122,
+      392,
+      330
+     ],
+     "description": "קטע מסילה פרבולי מ־A על ציר y עד B, עם עמודי תמיכה"
+    }
+   ],
+   "blocks": [
+    {
+     "kind": "figure_row",
+     "label": "",
+     "level": 0,
+     "align": "start",
+     "space_before": false,
+     "lines": [],
+     "figure_id": "f1",
+     "figure_side": "left",
+     "paragraphs": [
+      {
+       "label": "4.",
+       "level": 0,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "בפארק שעשועים התקינו רכבת הרים על קרקע מישורית.",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "אחד מן הקטעים של מסילת הרכבת הוא בצורת פרבולה.",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "קטע מסילה זה מתחיל בנקודה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "A",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " על ציר ה־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "y",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "ומסתיים בנקודה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "B",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " (ראו סרטוט).",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "קטע זה מתואר על ידי הפונקציה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "f(x)=-0.25x^{2}+3x+7",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "ציר ה־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "x",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " מתאר את המרחק האופקי (במטרים) מן הנקודה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "A",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " .",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "ציר ה־",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "y",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": " מתאר את גובה המסילה (במטרים) מעל הקרקע.",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      },
+      {
+       "label": "א.",
+       "level": 1,
+       "align": "start",
+       "space_before": false,
+       "lines": [
+        [
+         {
+          "type": "text",
+          "value": "מצאו את גובה נקודת ההתחלה של קטע המסילה",
+          "bold": false,
+          "underline": false
+         }
+        ],
+        [
+         {
+          "type": "text",
+          "value": "מעל הקרקע (הנקודה ",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "math",
+          "value": "A",
+          "bold": false,
+          "underline": false
+         },
+         {
+          "type": "text",
+          "value": ").",
+          "bold": false,
+          "underline": false
+         }
+        ]
+       ]
+      }
+     ],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "ב.",
+     "level": 1,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "(1)",
+        "bold": true,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": "\tמצאו את הגובה המקסימלי של קטע מסילה זה.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "(2)",
+     "level": 2,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "מצאו בעבור אילו ערכים של ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "x",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " בקטע מסילה זה הרכבת נמצאת במגמת עלייה.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "",
+     "level": 0,
+     "align": "start",
+     "space_before": true,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "קטע המסילה מחובר לכמה עמודי תמיכה אנכיים המוצבים על הקרקע.",
+        "bold": false,
+        "underline": false
+       }
+      ],
+      [
+       {
+        "type": "text",
+        "value": "אחד מעמודי התמיכה מחובר לקטע המסילה בנקודה ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "B",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " .",
+        "bold": false,
+        "underline": false
+       }
+      ],
+      [
+       {
+        "type": "text",
+        "value": "נתון כי שיעור ה־",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "x",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " של הנקודה ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "B",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " הוא ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "13",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " .",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "ג.",
+     "level": 1,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "מצאו את הגובה של עמוד תמיכה זה.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "",
+     "level": 0,
+     "align": "start",
+     "space_before": true,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "בקטע מסילה זה מותקנות כמה מצלמות אוטומטיות כדי לתעד את הנוסעים.",
+        "bold": false,
+        "underline": false
+       }
+      ],
+      [
+       {
+        "type": "text",
+        "value": "המצלמות נמצאות בנקודות שבהן גובה קטע המסילה מעל הקרקע הוא ",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "12",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " מטרים.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    },
+    {
+     "kind": "paragraph",
+     "label": "ד.",
+     "level": 1,
+     "align": "start",
+     "space_before": false,
+     "lines": [
+      [
+       {
+        "type": "text",
+        "value": "מצאו את שיעורי ה־",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "math",
+        "value": "x",
+        "bold": false,
+        "underline": false
+       },
+       {
+        "type": "text",
+        "value": " של הנקודות שבהן המצלמות נמצאות בקטע מסילה זה.",
+        "bold": false,
+        "underline": false
+       }
+      ]
+     ],
+     "figure_id": "",
+     "figure_side": "none",
+     "paragraphs": [],
+     "rows": []
+    }
+   ]
+  }
+ ]
+}

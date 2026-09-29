@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.math2word_cache/
+*.pdf
+!examples/*.pdf
