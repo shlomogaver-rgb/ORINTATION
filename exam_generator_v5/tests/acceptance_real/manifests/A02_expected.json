@@ -1,0 +1,26 @@
+{
+  "id": "A02",
+  "source": "q16_p7_3.png",
+  "case": "A02_formula_options",
+  "diagram_type": "graph",
+  "subtype": "multi_choice_graphs",
+  "required_labels": [
+    "I",
+    "II",
+    "III",
+    "IV"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "options": [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ]
+  },
+  "forbidden_objects": [
+    "merged_options"
+  ],
+  "expected": "reconstruct"
+}

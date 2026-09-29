@@ -1,0 +1,13 @@
+{
+  "id": "A12",
+  "source": "q19_p12_2.png",
+  "case": "A12_voxel",
+  "diagram_type": "spatial",
+  "subtype": "voxel_structure",
+  "required_labels": [],
+  "critical_facts": [],
+  "required_values": {},
+  "forbidden_objects": [],
+  "expected": "safe_fallback",
+  "note": "hidden columns cannot be read from the image: the only correct outcome is the original image"
+}

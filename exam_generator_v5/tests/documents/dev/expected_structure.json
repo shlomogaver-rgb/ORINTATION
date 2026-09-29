@@ -1,0 +1,14 @@
+{
+ "_note": "Hand-authored from reading the page images. Figures by page with the owning question/subpart and the expected visual kind.",
+ "questionnaire (20).pdf": {"questions": 5, "declared": 5, "multi_page": {}, "workspace_pages": [],
+   "visuals": [{"page": 2, "question": 1, "kind": "SOURCE"}, {"page": 5, "question": 4, "kind": "OPTION_GROUP", "options": 3}]},
+ "questionnaire (21).pdf": {"questions": 8, "declared": 8, "scanned": true, "multi_page": {}, "workspace_pages": [],
+   "visuals": [{"page": 2, "question": 1, "kind": "SOURCE"}, {"page": 4, "question": 4, "kind": "SOURCE"}, {"page": 4, "question": 5, "kind": "SOURCE"},
+               {"page": 5, "question": 6, "kind": "SOURCE"}]},
+ "questionnaire (22).pdf": {"questions": 8, "declared": 8, "multi_page": {"1": [2, 3]}, "workspace_pages": [],
+   "visuals": [{"page": 2, "question": 1, "kind": "OPTION_GROUP", "options": 3}, {"page": 3, "question": 1, "kind": "SOURCE"},
+               {"page": 5, "question": 4, "kind": "SOURCE"}, {"page": 5, "question": 5, "kind": "SOURCE"},
+               {"page": 6, "question": 6, "kind": "OPTION_GROUP", "options": 3}]},
+ "questionnaire (24).pdf": {"questions": 5, "declared": 5, "multi_page": {}, "workspace_pages": [],
+   "visuals": [{"page": 2, "question": 2, "kind": "SOURCE"}, {"page": 5, "question": 5, "kind": "OPTION_GROUP", "options": 4}]}
+}

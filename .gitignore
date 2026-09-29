@@ -3,3 +3,4 @@ __pycache__/
 .math2word_cache/
 *.pdf
 !examples/*.pdf
+!exam_generator_v5/**/*.pdf

@@ -1,0 +1,37 @@
+{
+  "id": "A09",
+  "source": "q15_p2_6.png",
+  "case": "A09_box",
+  "diagram_type": "spatial",
+  "subtype": "cuboid",
+  "required_labels": [
+    "A",
+    "A'",
+    "B",
+    "B'",
+    "C",
+    "C'",
+    "D",
+    "D'"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "edges": 12,
+    "hidden_edges": [
+      [
+        "A",
+        "A'"
+      ],
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "D"
+      ]
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

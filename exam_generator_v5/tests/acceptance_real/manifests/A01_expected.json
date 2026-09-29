@@ -1,0 +1,28 @@
+{
+  "id": "A01",
+  "source": "q14_p2_8.png",
+  "case": "A01_qualitative",
+  "diagram_type": "graph",
+  "subtype": "qualitative_graph",
+  "required_labels": [
+    "(6 , a)",
+    "(12 , 0)",
+    "(18, −2a)"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "landmark_kinds": [
+      "max",
+      "x_intercept",
+      "min"
+    ],
+    "branches": 1,
+    "horizontal_asymptotes": [
+      0.0
+    ]
+  },
+  "forbidden_objects": [
+    "formula"
+  ],
+  "expected": "reconstruct"
+}

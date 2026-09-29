@@ -1,0 +1,33 @@
+{
+  "id": "A07b",
+  "source": "q19_p4_6.png",
+  "case": "A07b_table_cakes",
+  "diagram_type": "table",
+  "subtype": "numeric_table",
+  "required_labels": [],
+  "critical_facts": [],
+  "required_values": {
+    "cells": [
+      [
+        "סוג העוגה",
+        "זמן הכנת התערובת (בדקות)",
+        "זמן האפייה (בדקות)",
+        "הרווח (בשקלים)"
+      ],
+      [
+        "עוגת שוקולד",
+        "4",
+        "20",
+        "47"
+      ],
+      [
+        "עוגת גבינה",
+        "4",
+        "60",
+        "60"
+      ]
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

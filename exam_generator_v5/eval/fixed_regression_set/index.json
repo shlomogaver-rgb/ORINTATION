@@ -1,0 +1,162 @@
+{
+ "A01": {
+  "page": "pages/q14_page2.png",
+  "expected_bbox_1000": [
+   675,
+   27,
+   877,
+   504
+  ],
+  "manifest": "tests/acceptance_real/manifests/A01_expected.json"
+ },
+ "A02": {
+  "page": "pages/q16_page7.png",
+  "expected_bbox_1000": [
+   335,
+   158,
+   499,
+   491
+  ],
+  "manifest": "tests/acceptance_real/manifests/A02_expected.json"
+ },
+ "A03": {
+  "page": "pages/q14_page3.png",
+  "expected_bbox_1000": [
+   354,
+   192,
+   523,
+   464
+  ],
+  "manifest": "tests/acceptance_real/manifests/A03_expected.json"
+ },
+ "A04": {
+  "page": "pages/q14_page7.png",
+  "expected_bbox_1000": [
+   88,
+   27,
+   299,
+   302
+  ],
+  "manifest": "tests/acceptance_real/manifests/A04_expected.json"
+ },
+ "A05": {
+  "page": "pages/q16_page3.png",
+  "expected_bbox_1000": [
+   188,
+   155,
+   418,
+   776
+  ],
+  "manifest": "tests/acceptance_real/manifests/A05_expected.json"
+ },
+ "A06": {
+  "page": "pages/q16_page8.png",
+  "expected_bbox_1000": [
+   261,
+   144,
+   466,
+   840
+  ],
+  "manifest": "tests/acceptance_real/manifests/A06_expected.json"
+ },
+ "A07": {
+  "page": "pages/q18_page12.png",
+  "expected_bbox_1000": [
+   200,
+   173,
+   317,
+   789
+  ],
+  "manifest": "tests/acceptance_real/manifests/A07_expected.json"
+ },
+ "A07b": {
+  "page": "pages/q19_page4.png",
+  "expected_bbox_1000": [
+   336,
+   167,
+   467,
+   799
+  ],
+  "manifest": "tests/acceptance_real/manifests/A07b_expected.json"
+ },
+ "A08": {
+  "page": "pages/q16_page5.png",
+  "expected_bbox_1000": [
+   131,
+   27,
+   432,
+   477
+  ],
+  "manifest": "tests/acceptance_real/manifests/A08_expected.json"
+ },
+ "A09": {
+  "page": "pages/q15_page2.png",
+  "expected_bbox_1000": [
+   542,
+   47,
+   767,
+   366
+  ],
+  "manifest": "tests/acceptance_real/manifests/A09_expected.json"
+ },
+ "A09b": {
+  "page": "pages/q17_page3.png",
+  "expected_bbox_1000": [
+   90,
+   47,
+   352,
+   423
+  ],
+  "manifest": "tests/acceptance_real/manifests/A09b_expected.json"
+ },
+ "A10": {
+  "page": "pages/q15_page5.png",
+  "expected_bbox_1000": [
+   518,
+   81,
+   710,
+   474
+  ],
+  "manifest": "tests/acceptance_real/manifests/A10_expected.json"
+ },
+ "A11": {
+  "page": "pages/q19_page8.png",
+  "expected_bbox_1000": [
+   457,
+   93,
+   666,
+   898
+  ],
+  "manifest": "tests/acceptance_real/manifests/A11_expected.json"
+ },
+ "A12": {
+  "page": "pages/q19_page12.png",
+  "expected_bbox_1000": [
+   80,
+   90,
+   317,
+   455
+  ],
+  "manifest": "tests/acceptance_real/manifests/A12_expected.json"
+ },
+ "A13": {
+  "page": "pages/q19_page14.png",
+  "expected_bbox_1000": [
+   80,
+   90,
+   338,
+   452
+  ],
+  "manifest": "tests/acceptance_real/manifests/A13_expected.json"
+ },
+ "A14": {
+  "page": "pages/q14_page5.png",
+  "expected_bbox_1000": [
+   124,
+   27,
+   335,
+   491
+  ],
+  "manifest": "tests/acceptance_real/manifests/A14_expected.json"
+ }
+}

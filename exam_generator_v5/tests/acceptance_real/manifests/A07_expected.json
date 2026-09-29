@@ -1,0 +1,36 @@
+{
+  "id": "A07",
+  "source": "q18_p12_4.png",
+  "case": "A07_table_haircuts",
+  "diagram_type": "table",
+  "subtype": "numeric_table",
+  "required_labels": [],
+  "critical_facts": [],
+  "required_values": {
+    "cells": [
+      [
+        "סוג התספורת",
+        "ילדים",
+        "שיער קצר",
+        "שיער ארוך",
+        "מיוחדת"
+      ],
+      [
+        "המחיר (בשקלים)",
+        "60",
+        "150",
+        "180",
+        "210"
+      ],
+      [
+        "מספר הלקוחות",
+        "5",
+        "21",
+        "9",
+        "10"
+      ]
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

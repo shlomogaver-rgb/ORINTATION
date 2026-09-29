@@ -1,0 +1,28 @@
+{
+  "id": "A09b",
+  "source": "q17_p3_2.png",
+  "case": "A09b_pyramid_vectors",
+  "diagram_type": "spatial",
+  "subtype": "vector_box",
+  "required_labels": [
+    "A",
+    "B",
+    "C",
+    "E",
+    "F",
+    "S"
+  ],
+  "critical_facts": [
+    "midpoint(E,B,S)",
+    "ratio_on_segment(F,B,C)=0.6666666666666666"
+  ],
+  "required_values": {
+    "vectors": [
+      "u",
+      "v",
+      "w"
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

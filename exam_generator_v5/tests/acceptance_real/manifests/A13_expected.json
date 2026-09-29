@@ -1,0 +1,41 @@
+{
+  "id": "A13",
+  "source": "q19_p14_2.png",
+  "case": "A13_carton_cup",
+  "diagram_type": "spatial",
+  "subtype": "cylinder_in_box",
+  "required_labels": [],
+  "critical_facts": [
+    "dimension=height:24",
+    "dimension=width:6.5",
+    "dimension=radius:3"
+  ],
+  "required_values": {
+    "dimensions": [
+      [
+        "carton",
+        "height",
+        24
+      ],
+      [
+        "carton",
+        "width",
+        6.5
+      ],
+      [
+        "carton",
+        "depth",
+        6.5
+      ],
+      [
+        "cup",
+        "radius",
+        3
+      ]
+    ]
+  },
+  "forbidden_objects": [
+    "dimension:cup:diameter"
+  ],
+  "expected": "reconstruct"
+}

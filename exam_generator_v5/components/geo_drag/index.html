@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+ body{margin:0;font-family:sans-serif} svg{background:#fff;border:1px solid #ccc;touch-action:none}
+ .pt{fill:#1565c0;stroke:#0d47a1;stroke-width:1;cursor:grab} .pt.drag{fill:#e65100;cursor:grabbing}
+ .seg{stroke:#555;stroke-width:2} .circ{fill:none;stroke:#888;stroke-width:1.5} .lbl{font-size:15px;user-select:none}
+</style></head><body>
+<svg id="s"></svg>
+<script>
+// Minimal Streamlit component (protocol v1): render args, drag a point, emit {event, id, x, y} in canvas units.
+const S = document.getElementById("s");
+let args = null, dragging = null, seq = 0;
+function send(type, data){ window.parent.postMessage(Object.assign({isStreamlitMessage:true, type:type}, data), "*"); }
+function draw(){
+  const W = args.width, H = args.height; S.setAttribute("width", W); S.setAttribute("height", H); S.innerHTML = "";
+  const P = {}; args.points.forEach(p => P[p.id] = p);
+  (args.circles||[]).forEach(c => { const e = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    e.setAttribute("cx", c.cx); e.setAttribute("cy", c.cy); e.setAttribute("r", c.r); e.setAttribute("class","circ"); S.appendChild(e); });
+  (args.segments||[]).forEach(([a,b]) => { if(!P[a]||!P[b]) return; const e = document.createElementNS("http://www.w3.org/2000/svg","line");
+    e.setAttribute("x1",P[a].x); e.setAttribute("y1",P[a].y); e.setAttribute("x2",P[b].x); e.setAttribute("y2",P[b].y);
+    e.setAttribute("class","seg"); S.appendChild(e); });
+  args.points.forEach(p => {
+    const c = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    c.setAttribute("cx",p.x); c.setAttribute("cy",p.y); c.setAttribute("r",9); c.setAttribute("class","pt");
+    c.setAttribute("data-id", p.id); c.setAttribute("id", "pt-" + p.id); S.appendChild(c);
+    const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+    t.setAttribute("x",p.x+11); t.setAttribute("y",p.y-11); t.setAttribute("class","lbl"); t.textContent = p.label || p.id; S.appendChild(t);
+  });
+  send("streamlit:setFrameHeight", {height: H + 8});
+}
+function pos(ev){ const r = S.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; }
+S.addEventListener("pointerdown", ev => { const id = ev.target.getAttribute && ev.target.getAttribute("data-id");
+  if(!id) return; dragging = id; ev.target.classList.add("drag"); S.setPointerCapture(ev.pointerId); });
+S.addEventListener("pointermove", ev => { if(!dragging) return; const [x,y] = pos(ev);
+  const c = document.getElementById("pt-" + dragging); c.setAttribute("cx", x); c.setAttribute("cy", y); });
+S.addEventListener("pointerup", ev => { if(!dragging) return; const [x,y] = pos(ev); seq += 1;
+  send("streamlit:setComponentValue", {value: {event: (args.nonce||0) * 1000 + seq, id: dragging, x: x, y: y}, dataType: "json"});
+  dragging = null; });
+window.addEventListener("message", ev => { if(ev.data && ev.data.type === "streamlit:render"){ args = ev.data.args; draw(); } });
+send("streamlit:componentReady", {apiVersion: 1});
+</script></body></html>

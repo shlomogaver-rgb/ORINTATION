@@ -1,0 +1,118 @@
+[
+ {
+  "q": 1,
+  "image": "h1_box_vectors.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [
+    "vectors"
+   ],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 2.8,
+  "error": ""
+ },
+ {
+  "q": 1,
+  "formulas": 20,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 2,
+  "image": "h2_abs_options.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 0.6,
+  "error": ""
+ },
+ {
+  "q": 2,
+  "formulas": 15,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 3,
+  "image": "h3_log_options.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 0.8,
+  "error": ""
+ },
+ {
+  "q": 3,
+  "formulas": 15,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 4,
+  "image": "h4_circle_equilateral.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 1.6,
+  "error": ""
+ },
+ {
+  "q": 4,
+  "formulas": 12,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 5,
+  "image": "h5_cubic_line.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 1.1,
+  "error": ""
+ },
+ {
+  "q": 5,
+  "formulas": 23,
+  "formulas_not_ok": []
+ },
+ {
+  "validate_errors": [],
+  "validate_warnings": []
+ }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "A04",
+  "source": "q14_p7_3.png",
+  "case": "A04_formula_no_construction",
+  "diagram_type": "graph",
+  "subtype": "formula_graph",
+  "required_labels": [],
+  "critical_facts": [
+    "formula(f)=2sqrt(x^2-1)"
+  ],
+  "required_values": {
+    "roots": [
+      -1.0,
+      1.0
+    ],
+    "branches": 2
+  },
+  "forbidden_objects": [
+    "point:A",
+    "point:B"
+  ],
+  "expected": "reconstruct"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "A11",
+  "source": "q19_p8_4.png",
+  "case": "A11_normal",
+  "diagram_type": "chart",
+  "subtype": "normal_distribution_schematic",
+  "required_labels": [],
+  "critical_facts": [],
+  "required_values": {
+    "percentages": [
+      "0.5%",
+      "1.5%",
+      "5%",
+      "9%",
+      "15%",
+      "19%",
+      "19%",
+      "15%",
+      "9%",
+      "5%",
+      "1.5%",
+      "0.5%"
+    ],
+    "answer_boxes": 11
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

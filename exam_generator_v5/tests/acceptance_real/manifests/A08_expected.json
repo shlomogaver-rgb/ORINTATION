@@ -1,0 +1,43 @@
+{
+  "id": "A08",
+  "source": "q16_p5_2.png",
+  "case": "A08_coordinate_circle",
+  "diagram_type": "geometry",
+  "subtype": "analytic_geometry",
+  "required_labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "M"
+  ],
+  "critical_facts": [
+    "on_x_axis(M)",
+    "coordinate(A)=-16,6",
+    "coordinate(B)=0,18",
+    "point_order(M,A,B)",
+    "diameter(A,C)",
+    "tangent(A,D)",
+    "on_y_axis(D)",
+    "on_circle(A)",
+    "on_circle(C)"
+  ],
+  "required_values": {
+    "coordinates": {
+      "M": [
+        -24,
+        0
+      ],
+      "C": [
+        -32,
+        -6
+      ],
+      "D": [
+        0,
+        -15.333333333333334
+      ]
+    }
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

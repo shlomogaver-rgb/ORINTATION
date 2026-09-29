@@ -1,0 +1,45 @@
+{
+  "id": "A06",
+  "source": "q16_p8_2.png",
+  "case": "A06_generic_plan",
+  "diagram_type": "generic",
+  "subtype": "schematic",
+  "required_labels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "K"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "regions": [
+      "גן פסלים",
+      "מבואה",
+      "שביל גישה"
+    ],
+    "dimension": [
+      "8 מטרים",
+      [
+        "A",
+        "G"
+      ]
+    ],
+    "adjacency": [
+      [
+        "גן פסלים",
+        "שביל גישה"
+      ],
+      [
+        "מבואה",
+        "שביל גישה"
+      ]
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

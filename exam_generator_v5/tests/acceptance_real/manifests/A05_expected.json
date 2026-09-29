@@ -1,0 +1,39 @@
+{
+  "id": "A05",
+  "source": "q16_p3_2.png",
+  "case": "A05_scatter",
+  "diagram_type": "chart",
+  "subtype": "scatter_plot",
+  "required_labels": [],
+  "critical_facts": [],
+  "required_values": {
+    "scatter_points": [
+      [
+        5,
+        50
+      ],
+      [
+        10,
+        40
+      ],
+      [
+        15,
+        20
+      ],
+      [
+        15,
+        30
+      ],
+      [
+        20,
+        30
+      ],
+      [
+        25,
+        10
+      ]
+    ]
+  },
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

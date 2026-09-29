@@ -1,0 +1,101 @@
+{
+ "_note": "Hand-authored ground truth for the six supplied questionnaires (question counts cross-checked with the questionnaires' own instructions where stated). Figure -> question numbers from reading each page.",
+ "questionnaire (14).pdf": {
+  "questions": 8,
+  "multi_page": {
+   "1": [
+    2,
+    3
+   ]
+  },
+  "workspace_pages": [],
+  "figures": {
+   "q14_p2_8": 1,
+   "q14_p3_4": 1,
+   "q14_p5_2": 4,
+   "q14_p7_3": 8
+  }
+ },
+ "questionnaire (15).pdf": {
+  "questions": 5,
+  "multi_page": {},
+  "workspace_pages": [],
+  "figures": {
+   "q15_p2_6": 2,
+   "q15_p5_5": 5
+  }
+ },
+ "questionnaire (16).pdf": {
+  "questions": 8,
+  "multi_page": {},
+  "workspace_pages": [],
+  "figures": {
+   "q16_p3_2": 2,
+   "q16_p5_2": 4,
+   "q16_p7_3": 7,
+   "q16_p8_2": 8
+  }
+ },
+ "questionnaire (17).pdf": {
+  "questions": 5,
+  "multi_page": {},
+  "workspace_pages": [],
+  "figures": {
+   "q17_p3_2": 2
+  }
+ },
+ "questionnaire (18).pdf": {
+  "questions": 6,
+  "multi_page": {},
+  "workspace_pages": [
+   5,
+   7,
+   9,
+   11,
+   13
+  ],
+  "admin_pages": [
+   1,
+   2
+  ],
+  "draft_pages": [
+   15,
+   16,
+   17,
+   18
+  ],
+  "figures": {
+   "q18_p12_4": 5
+  }
+ },
+ "questionnaire (19).pdf": {
+  "questions": 6,
+  "multi_page": {},
+  "workspace_pages": [
+   5,
+   7,
+   9,
+   11,
+   13
+  ],
+  "admin_pages": [
+   1,
+   2
+  ],
+  "draft_pages": [
+   15,
+   16,
+   17,
+   18
+  ],
+  "figures": {
+   "q19_p4_6": 1,
+   "q19_p8_4": 3,
+   "q19_p12_2": 5,
+   "q19_p14_2": 6
+  }
+ },
+ "_corrections": [
+  "q16_p5_2 was first written as question 5; the page shows the marker '4.' directly above the circle figure -> corrected to 4 (ground-truth error, not a code change)."
+ ]
+}

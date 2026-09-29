@@ -1,0 +1,139 @@
+[
+ {
+  "q": 1,
+  "image": "h1_box_vectors.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [
+   "OCR מצא את התווית E בתמונת המקור, אך היא חסרה בשחזור (MISSING_FROM_SPEC:E) — נדרשת בדיקת מורה.",
+   "OCR מצא את התווית F בתמונת המקור, אך היא חסרה בשחזור (MISSING_FROM_SPEC:F) — נדרשת בדיקת מורה."
+  ],
+  "semantics": {
+   "built": [],
+   "verified": [
+    "vectors"
+   ],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 2.8,
+  "error": ""
+ },
+ {
+  "q": 1,
+  "formulas": 20,
+  "formulas_not_ok": [
+   "\\overrightarrow{AB}=\\underline{u}",
+   "\\overrightarrow{BC}=\\underline{v}",
+   "\\overrightarrow{AA'}=\\underline{w}",
+   "\\underline{u}",
+   "\\underline{v}"
+  ]
+ },
+ {
+  "q": 2,
+  "image": "h2_abs_options.png",
+  "decision": "original",
+  "approved": false,
+  "validation_errors": [
+   "אפשרות II: ענף 1: התנהגות בימין מתייחסת לאסימפטוטה אופקית שאינה מוגדרת."
+  ],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 0.1,
+  "error": ""
+ },
+ {
+  "q": 2,
+  "formulas": 15,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 3,
+  "image": "h3_log_options.png",
+  "decision": "original",
+  "approved": false,
+  "validation_errors": [
+   "אפשרות IV: מרווח השנתות בציר y אינו חוקי (1.0)."
+  ],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 0.1,
+  "error": ""
+ },
+ {
+  "q": 3,
+  "formulas": 15,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 4,
+  "image": "h4_circle_equilateral.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 1.8,
+  "error": ""
+ },
+ {
+  "q": 4,
+  "formulas": 12,
+  "formulas_not_ok": []
+ },
+ {
+  "q": 5,
+  "image": "h5_cubic_line.png",
+  "decision": "review",
+  "approved": true,
+  "validation_errors": [],
+  "critical": [],
+  "contradictions": [
+   "OCR מצא את התווית X בתמונת המקור, אך היא חסרה בשחזור (MISSING_FROM_SPEC:X) — נדרשת בדיקת מורה."
+  ],
+  "semantics": {
+   "built": [],
+   "verified": [],
+   "conflicts": [],
+   "unsupported": []
+  },
+  "seconds": 1.1,
+  "error": ""
+ },
+ {
+  "q": 5,
+  "formulas": 23,
+  "formulas_not_ok": []
+ },
+ {
+  "validate_errors": [
+   "שאלה 2, סעיף ד: חסרה תשובה סופית מפורשת.",
+   "שאלה 2, תרשים 1: נדרשת החלטת מורה — אישור השחזור או שימוש חריג בסריקה. (לא ניתן היה לשחזר את התרשים באופן אמין — נדרשת החלטת מורה (תיקון השחזור או שימוש חריג בסריקה). האימות נכשל: אפשרות II: ענף 1: התנהגות בימין מתייחסת לאסימפטוטה אופקית שאינה מוגדרת.)",
+   "שאלה 3, תרשים 1: נדרשת החלטת מורה — אישור השחזור או שימוש חריג בסריקה. (לא ניתן היה לשחזר את התרשים באופן אמין — נדרשת החלטת מורה (תיקון השחזור או שימוש חריג בסריקה). האימות נכשל: אפשרות IV: מרווח השנתות בציר y אינו חוקי (1.0).)"
+  ],
+  "validate_warnings": [
+   "שאלה 1: 6 נוסחאות לא נותחו סמלית (יוצגו כפי שהן) — מומלץ לבדוק: \\overrightarrow{AB}=\\underline{u}"
+  ]
+ }
+]

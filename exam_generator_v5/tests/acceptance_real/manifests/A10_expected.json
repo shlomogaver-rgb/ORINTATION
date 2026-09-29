@@ -1,0 +1,32 @@
+{
+  "id": "A10",
+  "source": "q15_p5_5.png",
+  "case": "A10_log_options",
+  "diagram_type": "graph",
+  "subtype": "multi_choice_graphs",
+  "required_labels": [
+    "I",
+    "II",
+    "III",
+    "IV"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "options": [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ],
+    "branches_per_option": [
+      3,
+      3,
+      2,
+      1
+    ]
+  },
+  "forbidden_objects": [
+    "merged_options"
+  ],
+  "expected": "reconstruct"
+}

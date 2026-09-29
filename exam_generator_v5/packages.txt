@@ -1,0 +1,8 @@
+libreoffice-writer
+libreoffice-math
+fonts-liberation
+fonts-noto-core
+fonts-dejavu-core
+tesseract-ocr
+tesseract-ocr-heb
+tesseract-ocr-eng

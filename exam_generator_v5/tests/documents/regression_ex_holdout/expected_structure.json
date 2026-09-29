@@ -1,0 +1,95 @@
+{
+ "_note": "FORMER HOLDOUT. First (blind) run: 16/18 checks passed - failures: Q3 answer-box row of (23) merged into the curve drawing; Q5 options I-IV of (25) split into 2+2. Both fixed generically, so these files are now REGRESSION cases. A NEW unseen holdout set is required.",
+ "questionnaire (23).pdf": {
+  "questions": 6,
+  "declared": 6,
+  "multi_page": {},
+  "workspace_pages": [
+   5,
+   7,
+   9,
+   11,
+   13
+  ],
+  "admin_pages": [
+   1,
+   2
+  ],
+  "draft_pages": [
+   16,
+   17,
+   18
+  ],
+  "visuals": [
+   {
+    "page": 4,
+    "question": 1,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 6,
+    "question": 2,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 8,
+    "question": 3,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 10,
+    "question": 4,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 12,
+    "question": 5,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 14,
+    "question": 6,
+    "kind": "SOURCE"
+   }
+  ],
+  "response_templates": [
+   {
+    "page": 8,
+    "question": 3
+   },
+   {
+    "page": 12,
+    "question": 5
+   }
+  ]
+ },
+ "questionnaire (25).pdf": {
+  "questions": 5,
+  "declared": 5,
+  "multi_page": {},
+  "workspace_pages": [],
+  "visuals": [
+   {
+    "page": 2,
+    "question": 2,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 3,
+    "question": 3,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 4,
+    "question": 4,
+    "kind": "SOURCE"
+   },
+   {
+    "page": 5,
+    "question": 5,
+    "kind": "OPTION_GROUP",
+    "options": 4
+   }
+  ]
+ }
+}

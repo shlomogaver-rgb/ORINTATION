@@ -1,0 +1,28 @@
+{
+  "id": "A14",
+  "source": "q14_p5_2.png",
+  "case": "A14_circle_kite",
+  "diagram_type": "geometry",
+  "subtype": "circle_geometry",
+  "required_labels": [
+    "A",
+    "B",
+    "C",
+    "E",
+    "K",
+    "M",
+    "O"
+  ],
+  "critical_facts": [
+    "diameter(A,B)",
+    "on_circle(C)",
+    "intersection(K,A,M,C,O)",
+    "point_on_segment(E,B,O)",
+    "equal_length(M,K,M,E)",
+    "equal_length(O,K,O,E)",
+    "point_order(A,O,E,B)"
+  ],
+  "required_values": {},
+  "forbidden_objects": [],
+  "expected": "reconstruct"
+}

@@ -1,0 +1,28 @@
+# REAL IMAGE ACCEPTANCE REPORT — V5.6
+
+Source images: figure crops extracted from the six supplied Bagrut questionnaires (vector PDFs, 170 dpi).
+Pipeline: the PRODUCTION pipeline (no ground truth passed in). Result checked afterwards against hand-authored manifests
+(`tests/acceptance_real/manifests/*_expected.json`).
+
+**NOT TESTED – REAL VISION EXTRACTION:** no Gemini credentials/network in this environment. The structured proposal fed
+to the pipeline is a SIMULATED vision proposal written by hand (`tests/diagram_engine/acceptance/cases.py`). Text parsing,
+deterministic CV (scatter), validation, rendering, comparison, decision and export gating are REAL.
+
+| Test | Source | Class / subtype | Req. facts | Text facts | CV/math facts | Vision-only | Indep. coverage | Ambig. | Contradictions | Critical | Decision | Final conf. | Export before / after approval | Result |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| A01 | q14_p2_8.png | graph / qualitative_graph | 3 | 2 | 0 | 2 | 50% | 0 | 0 | 0 | review | 0.5 | no / yes | **PASS** |
+| A02 | q16_p7_3.png | graph / multi_choice_graphs | 4 | 5 | 0 | 4 | 50% | 0 | 0 | 0 | review | 0.5 | no / yes | **PASS** |
+| A03 | q14_p3_4.png | graph / multi_choice_graphs | 4 | 5 | 0 | 4 | 50% | 0 | 0 | 0 | review | 0.5 | no / yes | **PASS** |
+| A04 | q14_p7_3.png | graph / formula_graph | 1 | 5 | 0 | 0 | 100% | 0 | 0 | 0 | review | 0.9 | no / yes | **PASS** |
+| A05 | q16_p3_2.png | chart / scatter_plot | 0 | 0 | 6 | 0 | 100% | 0 | 0 | 0 | review | 0.9 | no / yes | **PASS** |
+| A06 | q16_p8_2.png | generic / schematic | 9 | 7 | 4 | 5 | 44% | 0 | 0 | 0 | review | 0.444 | no / yes | **PASS** |
+| A07 | q18_p12_4.png | table / numeric_table | 0 | 0 | 0 | 15 | 0% | 0 | 0 | 0 | review | 0.0 | no / yes | **PASS** |
+| A07b | q19_p4_6.png | table / numeric_table | 0 | 0 | 0 | 12 | 0% | 0 | 0 | 0 | review | 0.0 | no / yes | **PASS** |
+| A08 | q16_p5_2.png | geometry / analytic_geometry | 14 | 34 | 17 | 3 | 85% | 0 | 0 | 0 | review | 0.85 | no / yes | **PASS** |
+| A09 | q15_p2_6.png | spatial / cuboid | 8 | 8 | 8 | 12 | 40% | 0 | 0 | 0 | review | 0.4 | no / yes | **PASS** |
+| A09b | q17_p3_2.png | spatial / vector_box | 8 | 9 | 9 | 11 | 45% | 0 | 0 | 0 | review | 0.45 | no / yes | **PASS** |
+| A10 | q15_p5_5.png | graph / multi_choice_graphs | 4 | 5 | 0 | 4 | 50% | 0 | 0 | 0 | review | 0.5 | no / yes | **PASS** |
+| A11 | q19_p8_4.png | chart / normal_distribution_schematic | 0 | 0 | 0 | 12 | 0% | 0 | 0 | 0 | review | 0.0 | no / yes | **PASS** |
+| A12 | q19_p12_2.png | spatial / voxel_structure | 0 | 0 | 0 | 0 | 0% | 0 | 0 | 0 | original | 0.0 | no / — | **SAFE FALLBACK PASS** |
+| A13 | q19_p14_2.png | spatial / cylinder_in_box | 3 | 3 | 1 | 0 | 100% | 0 | 0 | 0 | review | 0.93 | no / yes | **PASS** |
+| A14 | q14_p5_2.png | geometry / circle_geometry | 14 | 28 | 20 | 4 | 80% | 0 | 0 | 0 | review | 0.8 | no / yes | **PASS** |

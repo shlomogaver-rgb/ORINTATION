@@ -1,0 +1,32 @@
+{
+  "id": "A03",
+  "source": "q14_p3_4.png",
+  "case": "A03_rational_options",
+  "diagram_type": "graph",
+  "subtype": "multi_choice_graphs",
+  "required_labels": [
+    "I",
+    "II",
+    "III",
+    "IV"
+  ],
+  "critical_facts": [],
+  "required_values": {
+    "options": [
+      "I",
+      "II",
+      "III",
+      "IV"
+    ],
+    "branches_per_option": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "forbidden_objects": [
+    "merged_options"
+  ],
+  "expected": "reconstruct"
+}
