@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אסיפת הורים – יום שלישי 24.11.2026</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f4f6fb;margin:0;padding:16px;color:#202124}
+  .card{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  h1{font-size:22px;margin:0 0 6px;color:#1a4fa0}
+  p.sub{margin:0 0 18px;color:#5f6368}
+  label.f{display:block;font-weight:bold;margin:12px 0 4px}
+  input[type=text],input[type=tel]{width:100%;box-sizing:border-box;padding:10px;border:1px solid #c7ccd6;border-radius:8px;font-size:16px}
+  #slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-top:6px}
+  .slot{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid #c7ccd6;border-radius:8px;padding:10px 4px;cursor:pointer;font-size:15px}
+  .slot.sel{background:#1a73e8;color:#fff;border-color:#1a73e8}
+  .slot input{margin:0}
+  button{margin-top:20px;width:100%;padding:12px;font-size:17px;border:0;border-radius:8px;background:#1a73e8;color:#fff;cursor:pointer}
+  button:disabled{background:#9bb8e8;cursor:default}
+  #msg{margin-top:16px;padding:12px;border-radius:8px;display:none;font-size:16px}
+  #msg.ok{display:block;background:#e6f4ea;color:#137333}
+  #msg.err{display:block;background:#fce8e6;color:#c5221f}
+  #msg.info{display:block;background:#e8f0fe;color:#1a4fa0}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>אסיפת הורים – יום שלישי 24.11.2026</h1>
+  <p class="sub">כל מפגש נמשך 10 דקות. מוצגות רק השעות שעדיין פנויות.</p>
+  <form id="f">
+    <label class="f" for="student">שם התלמיד/ה</label>
+    <input type="text" id="student" name="student" required>
+    <label class="f" for="parent">שם ההורה</label>
+    <input type="text" id="parent" name="parent" required>
+    <label class="f" for="phone">טלפון</label>
+    <input type="tel" id="phone" name="phone" required>
+    <label class="f">בחירת שעה</label>
+    <div id="slots">טוען שעות פנויות...</div>
+    <button type="submit" id="btn">הרשמה</button>
+  </form>
+  <div id="msg"></div>
+</div>
+<script>
+  var API = 'https://script.google.com/macros/s/AKfycbzSq6lFvmwu6Jq7n-9M_Ds2F0aZ5F7jlMjAWx0WuYwfqft20nwnfmJR7AIY47NVtBXl/exec';
+  var f = document.getElementById('f');
+  var btn = document.getElementById('btn');
+  function msg(text, cls){ var m=document.getElementById('msg'); m.textContent=text; m.className=cls||'info'; }
+  function call(params){
+    var q = Object.keys(params).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(params[k]); }).join('&');
+    return fetch(API + '?' + q + '&_=' + Date.now(), { credentials: 'omit', cache: 'no-store' })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(!d.ok) throw new Error(d.error || 'שגיאה'); return d; });
+  }
+  function load(){
+    call({action:'slots'}).then(function(d){ render(d.slots); })
+      .catch(function(e){ document.getElementById('slots').textContent=''; msg('לא ניתן לטעון את השעות: '+e.message+'. נסו לרענן את הדף.','err'); });
+  }
+  function render(slots){
+    var box=document.getElementById('slots'); box.innerHTML='';
+    if(!slots.length){ box.textContent='כל השעות תפוסות. לתיאום יש לפנות למחנך.'; btn.disabled=true; return; }
+    slots.forEach(function(s){
+      var lab=document.createElement('label'); lab.className='slot';
+      var inp=document.createElement('input'); inp.type='radio'; inp.name='slot'; inp.value=s.start;
+      inp.addEventListener('change', function(){
+        box.querySelectorAll('.slot').forEach(function(l){ l.classList.remove('sel'); });
+        lab.classList.add('sel');
+      });
+      var sp=document.createElement('span'); sp.textContent=s.start+'–'+s.end;
+      lab.appendChild(inp); lab.appendChild(sp); box.appendChild(lab);
+    });
+  }
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var sel=f.querySelector('input[name=slot]:checked');
+    if(!f.student.value.trim()||!f.parent.value.trim()||!f.phone.value.trim()){ msg('נא למלא את כל השדות.','err'); return; }
+    if(!sel){ msg('נא לבחור שעה.','err'); return; }
+    btn.disabled=true; msg('שומר את ההרשמה...','info');
+    call({action:'book', student:f.student.value, parent:f.parent.value, phone:f.phone.value, slot:sel.value})
+      .then(function(d){
+        f.style.display='none';
+        msg('ההרשמה נקלטה בהצלחה! הפגישה שלכם ביום שלישי 24.11.2026 בשעה '+d.result.start+'–'+d.result.end+'. נתראה!','ok');
+      })
+      .catch(function(err){ btn.disabled=false; msg(err.message,'err'); load(); });
+  });
+  load();
+</script>
+</body>
+</html>
